@@ -2,8 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:flutter_platform_specific_app/utils/color_utils.dart' as ColorUtils;
 
-final toolbarTextStyle = TextStyle(color: Colors.white, fontSize: 16.0);
 
 class AppHomePage extends StatefulWidget {
   AppHomePage({Key key, this.title}) : super(key: key);
@@ -17,7 +17,7 @@ class _AppHomePageState extends State<AppHomePage> {
   Widget build(BuildContext context) {
       return PlatformScaffold(
       appBar: PlatformAppBar(
-        title: Text(widget.title, style: toolbarTextStyle,),
+        title: Text(widget.title, style: ColorUtils.toolbarTextStyle,),
         ios: (_)=> CupertinoNavigationBarData(
           transitionBetweenRoutes: false,
           trailing: PlatformButton(
@@ -34,15 +34,14 @@ class _AppHomePageState extends State<AppHomePage> {
         floatingActionButton: FloatingActionButton(
         onPressed: () {
         },
-        tooltip: 'Screen 1',
         child: Icon(Icons.add),
       )
       ),
       body: Center(
         child:
         Text(
-            "Screen 1",
-            style: TextStyle(color: Colors.black, fontSize: 30),
+            "Landing Screen",
+            style: ColorUtils.textStyleBlackPlain,
           ),
       ));
   }

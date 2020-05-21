@@ -2,24 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_specific_app/ui/apphomepage.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:flutter_platform_specific_app/utils/color_utils.dart' as ColorUtils;
 
-
-final materialThemeData = ThemeData(
-    primarySwatch: Colors.blue,
-    scaffoldBackgroundColor: Colors.white,
-    accentColor: Colors.blue,
-    appBarTheme: AppBarTheme(color: Colors.blue.shade600),
-    primaryColor: Colors.blue,
-    secondaryHeaderColor: Colors.blue,
-    canvasColor: Colors.blue,
-    backgroundColor: Colors.red,
-    textTheme: TextTheme().copyWith(body1: TextTheme().body1));
-
-final cupertinoTheme = CupertinoThemeData(
-    primaryColor: Colors.blue,
-    barBackgroundColor: Colors.blue,
-    scaffoldBackgroundColor: Colors.white);
-    
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -29,8 +13,8 @@ class MyApp extends StatelessWidget {
     return PlatformApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      android: (_) => MaterialAppData(theme: materialThemeData),
-      ios: (_) => CupertinoAppData(theme: cupertinoTheme),
+      android: (_) => MaterialAppData(theme: ColorUtils.materialThemeData),
+      ios: (_) => CupertinoAppData(theme: ColorUtils.cupertinoTheme),
       home: AppHomePage(title: 'Flutter Platform Aware App'),
     );
   }

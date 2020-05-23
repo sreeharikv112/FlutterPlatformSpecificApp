@@ -1,33 +1,36 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_specific_app/ui/screen_tab_one.dart';
 import 'package:flutter_platform_specific_app/ui/screen_tab_three.dart';
 import 'package:flutter_platform_specific_app/ui/screen_tab_two.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:flutter_platform_specific_app/utils/color_utils.dart' as ColorUtils;
+import 'package:flutter_platform_specific_app/utils/color_utils.dart'
+    as ColorUtils;
+import 'package:flutter_platform_specific_app/utils/constants.dart';
 
-
-class DashboardScreen extends StatefulWidget{
+class DashboardScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    
     return DashboardScreenState();
   }
 }
 
-class DashboardScreenState extends State<DashboardScreen>{
+class DashboardScreenState extends State<DashboardScreen> {
+
   int _tabSelectedIndex = 0;
-  String title = "Dashboard";
+  String title = txtDashboard;
+  
   @override
   Widget build(BuildContext context) {
     return PlatformScaffold(
       appBar: PlatformAppBar(
-        title: Text(title, style: ColorUtils.toolbarTextStyle,),
-        ios: (_)=> CupertinoNavigationBarData(
+        title: Text(
+          title,
+          style: ColorUtils.toolbarTextStyle,
+        ),
+        ios: (_) => CupertinoNavigationBarData(
           transitionBetweenRoutes: false,
         ),
       ),
-      
       android: (_) => MaterialScaffoldData(),
       body: getTabScreen(_tabSelectedIndex),
       bottomNavBar: PlatformNavBar(
@@ -38,25 +41,24 @@ class DashboardScreenState extends State<DashboardScreen>{
               title = getScreenTitle(index);
             });
           },
-        backgroundColor: Colors.blueGrey,
+          backgroundColor: ColorUtils.bottomTabsBackground,
           items: [
-        BottomNavigationBarItem(
-          icon:  Icon(Icons.apps, color: Colors.grey),
-          title:  Text('Dashboard', style: ColorUtils.bottomNavTextStyle),
-          activeIcon:  Icon(Icons.apps, color: Colors.white),
-        ),
-        BottomNavigationBarItem(
-          icon:  Icon(Icons.update, color: Colors.grey),
-          title:  Text('Feeds', style: ColorUtils.bottomNavTextStyle),
-          activeIcon:  Icon(Icons.update, color: Colors.white),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.settings, color: Colors.grey),
-          title: Text('Settings',style: ColorUtils.bottomNavTextStyle,
-          ),
-          activeIcon:  Icon(Icons.settings, color: Colors.white),
-        )
-      ]),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.apps, color: Colors.grey),
+              title: Text(txtDashboard, style: ColorUtils.bottomNavTextStyle),
+              activeIcon: Icon(Icons.apps, color: Colors.white),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.update, color: Colors.grey),
+              title: Text(txtFeeds, style: ColorUtils.bottomNavTextStyle),
+              activeIcon: Icon(Icons.update, color: Colors.white),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings, color: Colors.grey),
+              title: Text(txtSettings,style: ColorUtils.bottomNavTextStyle,),
+              activeIcon: Icon(Icons.settings, color: Colors.white),
+            )
+          ]),
     );
   }
 
@@ -72,14 +74,15 @@ class DashboardScreenState extends State<DashboardScreen>{
     }
   }
 
-  String getScreenTitle(int tabIndex){
+  ////Return title of the screen
+  String getScreenTitle(int tabIndex) {
     switch (tabIndex) {
       case 1:
-        return "Feeds";
+        return txtFeeds;
       case 2:
-        return "Settings";
+        return txtSettings;
       default:
-        return "Dashboard";
+        return txtDashboard;
     }
   }
 }

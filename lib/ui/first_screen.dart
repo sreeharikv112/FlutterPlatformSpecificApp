@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_specific_app/utils/constants.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-
 import 'dashboard.dart';
 
+///Login screen
 class FirstScreen extends StatefulWidget {
   @override
   _FirstScreenState createState() => _FirstScreenState();
@@ -31,13 +31,13 @@ class _FirstScreenState extends State<FirstScreen> {
             onChanged: (value) => {
               _userNameEntered = value,
               if (value.isEmpty) 
-              {showAlert('Please enter valid username')}
+              {showAlert(username_error)}
             },
             android: (_) => MaterialTextFieldData(
-              decoration: InputDecoration(labelText: 'User name'),
+              decoration: InputDecoration(labelText: username),
             ),
             ios: (_) => CupertinoTextFieldData(
-              placeholder: 'User name',
+              placeholder: username,
             ),
           ),
         ),
@@ -50,14 +50,14 @@ class _FirstScreenState extends State<FirstScreen> {
             onChanged: (value) => {
               _passwordEntered = value,
               if (value.isEmpty) 
-              {showAlert('Please enter valid password')}
+              {showAlert(password_error)}
             },
             android: (_) => MaterialTextFieldData(
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: InputDecoration(labelText: password),
               obscureText: true,
             ),
             ios: (_) => CupertinoTextFieldData(
-              placeholder: 'Password',
+              placeholder: password,
               obscureText: true,
             ),
           ),
@@ -97,13 +97,13 @@ class _FirstScreenState extends State<FirstScreen> {
               onPressed: () {
                 setState(() {
                   if (_userNameEntered.isEmpty || _passwordEntered.isEmpty) {
-                    showAlert('Please enter both user name and password');
+                    showAlert(un_pw_error);
                   } else {
                     moveToNextScreen(context);
                   }
                 });
               },
-              child: Text('Login'),
+              child: Text(login),
               android: (_) => MaterialRaisedButtonData(),
               ios: (_) => CupertinoButtonData(),
             )),
@@ -111,6 +111,7 @@ class _FirstScreenState extends State<FirstScreen> {
     );
   }
 
+  ////Return image asset
   Widget getAssetImage() {
     AssetImage assetImage = AssetImage('images/icon_iron_man.png');
     Image image = Image(
@@ -125,15 +126,16 @@ class _FirstScreenState extends State<FirstScreen> {
     );
   }
 
+  ////Shows alert message with provided text
   void showAlert(String message) {
     showPlatformDialog(
       context: context,
       builder: (_) => PlatformAlertDialog(
-        title: Text('Alert'),
+        title: Text(alert),
         content: Text(message),
         actions: <Widget>[
           PlatformDialogAction(
-            child: Text("Ok"),
+            child: Text(ok),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -144,6 +146,7 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 }
 
+////Routes to next screen
 void moveToNextScreen(BuildContext context) {
   Navigator.pushReplacement(context,
     MaterialPageRoute(builder: (context) => DashboardScreen()),

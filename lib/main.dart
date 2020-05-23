@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_specific_app/ui/apphomepage.dart';
-import 'package:flutter_platform_specific_app/ui/first_screen.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_platform_specific_app/utils/color_utils.dart' as ColorUtils;
 

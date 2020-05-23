@@ -3,6 +3,7 @@ library colorutils;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+////Color utilities
 final materialThemeData = ThemeData(
     primarySwatch: Colors.deepOrange,
     scaffoldBackgroundColor: Colors.white,
@@ -20,6 +21,7 @@ final cupertinoTheme = CupertinoThemeData(
 
 final toolbarTextStyle = TextStyle(color: Colors.white, fontSize: 16.0);
 final textStyleBlackPlain = TextStyle(color: Colors.black, fontSize: 30);
-
+final bottomTabsBackground = Colors.blueGrey;
 final bottomNavTextStyle = TextStyle(color: Colors.white, fontSize: 14.0);
 final toolbarButtonTextStyle = TextStyle(color: Colors.white, fontSize: 14.0);
+final tabsContentText = TextStyle(color: Colors.brown, fontSize: 30);

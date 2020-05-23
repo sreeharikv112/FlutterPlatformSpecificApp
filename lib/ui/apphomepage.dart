@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_specific_app/ui/first_screen.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_platform_specific_app/utils/color_utils.dart' as ColorUtils;
 
@@ -24,12 +25,10 @@ class _AppHomePageState extends State<AppHomePage> {
       ),
       
       android: (_) => MaterialScaffoldData(),
-      body: Center(
-        child:
-        Text(
-            "Landing Screen",
-            style: ColorUtils.textStyleBlackPlain,
-          ),
-      ));
+      body: getFirstScreen());
+  }
+
+  Widget getFirstScreen(){
+    return FirstScreen();
   }
 }

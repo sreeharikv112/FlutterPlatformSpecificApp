@@ -4,19 +4,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 final materialThemeData = ThemeData(
-    primarySwatch: Colors.indigo,
+    primarySwatch: Colors.deepOrange,
     scaffoldBackgroundColor: Colors.white,
-    accentColor: Colors.indigo,
-    appBarTheme: AppBarTheme(color: Colors.indigo),
-    primaryColor: Colors.indigo,
-    secondaryHeaderColor: Colors.indigo,
-    canvasColor: Colors.indigo,
-    backgroundColor: Colors.teal,
+    accentColor: Colors.deepOrange,
+    appBarTheme: AppBarTheme(color: Colors.deepOrange),
+    primaryColor: Colors.redAccent,
+    secondaryHeaderColor: Colors.deepOrange,
     textTheme: TextTheme().copyWith(body1: TextTheme().body1));
 
 final cupertinoTheme = CupertinoThemeData(
-    primaryColor: Colors.indigo,
-    barBackgroundColor: Colors.indigo,
+    primaryColor: Colors.redAccent,
+    barBackgroundColor: Colors.deepOrange,
+    primaryContrastingColor: Colors.redAccent,
     scaffoldBackgroundColor: Colors.white);
 
 final toolbarTextStyle = TextStyle(color: Colors.white, fontSize: 16.0);

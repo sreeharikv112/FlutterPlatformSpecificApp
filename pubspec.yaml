@@ -22,5 +22,7 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
-
+ 
+  assets:
+    - images/icon_iron_man.png
 

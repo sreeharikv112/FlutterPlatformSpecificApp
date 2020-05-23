@@ -20,3 +20,6 @@ final cupertinoTheme = CupertinoThemeData(
 
 final toolbarTextStyle = TextStyle(color: Colors.white, fontSize: 16.0);
 final textStyleBlackPlain = TextStyle(color: Colors.black, fontSize: 30);
+
+final bottomNavTextStyle = TextStyle(color: Colors.white, fontSize: 14.0);
+final toolbarButtonTextStyle = TextStyle(color: Colors.white, fontSize: 14.0);

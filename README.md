@@ -1,16 +1,17 @@
-# flutter_platform_specific_app
+# Flutter Platform Widgets and Usage
 
-A new Flutter project.
+## Shows usage of flutter platform widgets and implementation
 
-## Getting Started
+Sample application having a login screen and dashdoard (bottom navigation also) with platform widgets.
 
-This project is a starting point for a Flutter application.
+Screen included for login
 
-A few resources to get you started if this is your first Flutter project:
+<img width="710" alt="Screenshot 2020-05-23 at 10 01 52 AM" src="https://user-images.githubusercontent.com/39777674/82733587-606e7a00-9d32-11ea-87ec-cdf698882382.png">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+Screen included for dashboard /feeds / Settings in bottom navigation.
+
+
+<img width="709" alt="Screenshot 2020-05-23 at 5 18 10 PM" src="https://user-images.githubusercontent.com/39777674/82733615-990e5380-9d32-11ea-9261-b50611c3352e.png">
+

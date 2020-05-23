@@ -17,11 +17,12 @@ class DashboardScreen extends StatefulWidget{
 
 class DashboardScreenState extends State<DashboardScreen>{
   int _tabSelectedIndex = 0;
+  String title = "Dashboard";
   @override
   Widget build(BuildContext context) {
     return PlatformScaffold(
       appBar: PlatformAppBar(
-        title: Text("Dashboard", style: ColorUtils.toolbarTextStyle,),
+        title: Text(title, style: ColorUtils.toolbarTextStyle,),
         ios: (_)=> CupertinoNavigationBarData(
           transitionBetweenRoutes: false,
         ),
@@ -34,6 +35,7 @@ class DashboardScreenState extends State<DashboardScreen>{
           itemChanged: (index) {
             setState(() {
               _tabSelectedIndex = index;
+              title = getScreenTitle(index);
             });
           },
         backgroundColor: Colors.blueGrey,
@@ -58,6 +60,7 @@ class DashboardScreenState extends State<DashboardScreen>{
     );
   }
 
+  ////Return corresponding screen per index
   Widget getTabScreen(int tabIndex) {
     switch (tabIndex) {
       case 1:
@@ -69,4 +72,14 @@ class DashboardScreenState extends State<DashboardScreen>{
     }
   }
 
+  String getScreenTitle(int tabIndex){
+    switch (tabIndex) {
+      case 1:
+        return "Feeds";
+      case 2:
+        return "Settings";
+      default:
+        return "Dashboard";
+    }
+  }
 }

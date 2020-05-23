@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_platform_specific_app/utils/color_utils.dart' as ColorUtils;
 
 class ScreenTabTwo extends StatelessWidget {
   @override

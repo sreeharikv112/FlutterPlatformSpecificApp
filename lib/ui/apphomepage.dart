@@ -25,10 +25,6 @@ class _AppHomePageState extends State<AppHomePage> {
       ),
       
       android: (_) => MaterialScaffoldData(),
-      body: getFirstScreen());
-  }
-
-  Widget getFirstScreen(){
-    return FirstScreen();
+      body: FirstScreen());
   }
 }

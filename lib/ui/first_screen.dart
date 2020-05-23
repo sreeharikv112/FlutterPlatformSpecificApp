@@ -10,19 +10,29 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
   bool _currentSwitchValue = false;
   String switchText = "Do not ";
+  String _userNameEntered="";
+  String _passwordEntered="";
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
+        //image logo
         getAssetImage(),
+
+        //User name
         Padding(
           padding: const EdgeInsets.only(
               top: padding_50, left: padding_20, right: padding_20),
           child: PlatformTextField(
             keyboardType: TextInputType.text,
             onChanged: (value) => {
-              if (value.isEmpty) {showAlert('Please enter valid username')}
+              _userNameEntered = value,
+              if (value.isEmpty) 
+              {
+                showAlert('Please enter valid username')
+              }
+              
             },
             android: (_) => MaterialTextFieldData(
               decoration: InputDecoration(labelText: 'User name'),
@@ -32,12 +42,18 @@ class _FirstScreenState extends State<FirstScreen> {
             ),
           ),
         ),
+
+        //password        
         Padding(
           padding: const EdgeInsets.all(padding_20),
           child: PlatformTextField(
             keyboardType: TextInputType.text,
             onChanged: (value) => {
-              if (value.isEmpty) {showAlert('Please enter valid password')}
+              _passwordEntered = value,
+              if (value.isEmpty) 
+              {
+                showAlert('Please enter valid password')
+              }
             },
             android: (_) => MaterialTextFieldData(
               decoration: InputDecoration(labelText: 'Password'),
@@ -49,6 +65,8 @@ class _FirstScreenState extends State<FirstScreen> {
             ),
           ),
         ),
+
+        //Switch
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -74,10 +92,20 @@ class _FirstScreenState extends State<FirstScreen> {
             ),
           ],
         ),
+
+        //Button
         Padding(
             padding: const EdgeInsets.all(padding_20),
             child: PlatformButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  if(_userNameEntered.isEmpty || _passwordEntered.isEmpty){
+                    showAlert('Please enter both user name and password');
+                  }else{
+                    debugPrint('proceed');
+                  }
+                });
+              },
               child: Text('Login'),
               android: (_) => MaterialRaisedButtonData(),
               ios: (_) => CupertinoButtonData(),

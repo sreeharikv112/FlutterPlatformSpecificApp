@@ -20,23 +20,10 @@ class _AppHomePageState extends State<AppHomePage> {
         title: Text(widget.title, style: ColorUtils.toolbarTextStyle,),
         ios: (_)=> CupertinoNavigationBarData(
           transitionBetweenRoutes: false,
-          trailing: PlatformButton(
-            padding: EdgeInsets.all(4.0),
-            child: Icon(
-              Icons.add,
-              color: Colors.white,
-            ),  
-          ),
         ),
       ),
       
-      android: (_) => MaterialScaffoldData(
-        floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
-        child: Icon(Icons.add),
-      )
-      ),
+      android: (_) => MaterialScaffoldData(),
       body: Center(
         child:
         Text(

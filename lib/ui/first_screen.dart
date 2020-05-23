@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_platform_specific_app/utils/constants.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+import 'dashboard.dart';
+
 class FirstScreen extends StatefulWidget {
   @override
   _FirstScreenState createState() => _FirstScreenState();
@@ -10,8 +12,8 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
   bool _currentSwitchValue = false;
   String switchText = "Do not ";
-  String _userNameEntered="";
-  String _passwordEntered="";
+  String _userNameEntered = "";
+  String _passwordEntered = "";
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +31,7 @@ class _FirstScreenState extends State<FirstScreen> {
             onChanged: (value) => {
               _userNameEntered = value,
               if (value.isEmpty) 
-              {
-                showAlert('Please enter valid username')
-              }
-              
+              {showAlert('Please enter valid username')}
             },
             android: (_) => MaterialTextFieldData(
               decoration: InputDecoration(labelText: 'User name'),
@@ -43,7 +42,7 @@ class _FirstScreenState extends State<FirstScreen> {
           ),
         ),
 
-        //password        
+        //password
         Padding(
           padding: const EdgeInsets.all(padding_20),
           child: PlatformTextField(
@@ -51,9 +50,7 @@ class _FirstScreenState extends State<FirstScreen> {
             onChanged: (value) => {
               _passwordEntered = value,
               if (value.isEmpty) 
-              {
-                showAlert('Please enter valid password')
-              }
+              {showAlert('Please enter valid password')}
             },
             android: (_) => MaterialTextFieldData(
               decoration: InputDecoration(labelText: 'Password'),
@@ -99,10 +96,10 @@ class _FirstScreenState extends State<FirstScreen> {
             child: PlatformButton(
               onPressed: () {
                 setState(() {
-                  if(_userNameEntered.isEmpty || _passwordEntered.isEmpty){
+                  if (_userNameEntered.isEmpty || _passwordEntered.isEmpty) {
                     showAlert('Please enter both user name and password');
-                  }else{
-                    debugPrint('proceed');
+                  } else {
+                    moveToNextScreen(context);
                   }
                 });
               },
@@ -145,4 +142,10 @@ class _FirstScreenState extends State<FirstScreen> {
       ),
     );
   }
+}
+
+void moveToNextScreen(BuildContext context) {
+  Navigator.pushReplacement(context,
+    MaterialPageRoute(builder: (context) => DashboardScreen()),
+  );
 }

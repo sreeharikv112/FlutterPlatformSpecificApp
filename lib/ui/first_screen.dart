@@ -30,7 +30,7 @@ class _FirstScreenState extends State<FirstScreen> {
             keyboardType: TextInputType.text,
             onChanged: (value) => {
               _userNameEntered = value,
-              if (value.isEmpty) 
+              if(value.isEmpty) 
               {showAlert(username_error)}
             },
             android: (_) => MaterialTextFieldData(
@@ -49,7 +49,7 @@ class _FirstScreenState extends State<FirstScreen> {
             keyboardType: TextInputType.text,
             onChanged: (value) => {
               _passwordEntered = value,
-              if (value.isEmpty) 
+              if(value.isEmpty) 
               {showAlert(password_error)}
             },
             android: (_) => MaterialTextFieldData(

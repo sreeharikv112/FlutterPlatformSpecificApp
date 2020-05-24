@@ -11,7 +11,7 @@ final materialThemeData = ThemeData(
     appBarTheme: AppBarTheme(color: Colors.deepOrange),
     primaryColor: Colors.redAccent,
     secondaryHeaderColor: Colors.deepOrange,
-    textTheme: TextTheme().copyWith(body1: TextTheme().body1));
+    textTheme: TextTheme().copyWith(bodyText1: TextTheme().bodyText2));
 
 final cupertinoTheme = CupertinoThemeData(
     primaryColor: Colors.redAccent,
